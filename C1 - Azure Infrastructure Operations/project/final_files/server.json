@@ -16,7 +16,7 @@
 		"image_offer": "UbuntuServer",
 		"image_sku":"18.04-LTS",
 
-		"managed_image_resource_group_name": "udacity-azure-devops-nanodegree-resources",
+		"managed_image_resource_group_name": "udacity-azure-devops-nanodegree-image-resources",
 		"managed_image_name": "project-1",
 
 		"location": "southeastasia",

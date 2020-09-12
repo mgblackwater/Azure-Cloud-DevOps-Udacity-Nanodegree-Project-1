@@ -139,6 +139,7 @@ resource "azurerm_availability_set" "main" {
   name                = "${var.prefix}-aset"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
+  platform_fault_domain_count = var.fault_domain_count
 
   tags = {
     "project": "udacity-azure-devops-nanodegree-project-1"
@@ -155,13 +156,13 @@ resource "azurerm_linux_virtual_machine" "main" {
   location                        = azurerm_resource_group.main.location
   size                            = "Standard_D2s_V3"
   
-  admin_username                  = "${var.admin_username}"
-  admin_password                  = "${var.admin_password}"
+  admin_username                  = var.admin_username
+  admin_password                  = var.admin_password
   disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.main[count.index].id
   ]
-  source_image_id = "/subscriptions/ee2b61e4-1698-4cdf-a676-53901178abbf/resourceGroups/udacity-resources/providers/Microsoft.Compute/images/project1"
+  source_image_id = "/subscriptions/ee2b61e4-1698-4cdf-a676-53901178abbf/resourceGroups/udacity-azure-devops-nanodegree-image-resources/providers/Microsoft.Compute/images/project-1"
 
   os_disk {
     storage_account_type = "Standard_LRS"

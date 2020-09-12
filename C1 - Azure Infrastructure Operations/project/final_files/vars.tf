@@ -9,16 +9,21 @@ variable "location" {
 }
 
 variable "admin_username" {
-  default = ""
+  default = "admin"
   description = "The username of the administrator."
 }
 
 variable "admin_password" {
-  default = ""
+  default = "admin"
   description = "Password of the administrator."
 }
 
 variable "vm_count" {
   default = 2
   description = "Number of VM to be created and attach to load balancer."
+}
+
+variable "fault_domain_count"{
+    default = 2
+    description = "The number of fault domains that are used in availabilty set."
 }
